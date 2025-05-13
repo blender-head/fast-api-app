@@ -20,3 +20,14 @@ alembic init alembic
 ```
 
 This creates an alembic directory with configuration files.
+
+3. Modify `alembic\env.py`
+
+Connect alembic to the database
+
+```
+config.set_main_option(
+    "sqlalchemy.url", 
+    f"mysql+mysqldb://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}"
+)
+```
